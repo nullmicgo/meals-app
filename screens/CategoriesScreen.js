@@ -4,6 +4,9 @@ import { CATEGORIES } from '../data/dummy-data';
 import Colors  from '../constants/Colors';
 import { Platform } from '@unimodules/core';
 import CategoryGridTitle  from '../components/CategoryGridTitle';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/HeaderButton';
+
 
 const CategoriesScreen = props => {
 
@@ -22,20 +25,23 @@ const CategoriesScreen = props => {
             }} />
         )
     }
-
-
     return (
         <FlatList keyExtractor={(item, index) => item.id} data={CATEGORIES} renderItem={renderGridItem} numColumns={2}>
         </FlatList>
     )
 }
 
-CategoriesScreen.navigationOptions = {
-    headerTitle: 'Meal Categories',
-    headerStyle:{
-        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white'
-    },
-    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
+CategoriesScreen.navigationOptions = navData => {
+    return {
+        headerTitle: 'Meal Categories',
+        headerLeft: (
+                <HeaderButtons HeaderButtonComponent={HeaderButton} >
+                    <Item title="Menu" iconName="ios-menu" onPress={()=>{
+                            navData.navigation.openDrawer();
+                    }} />
+            </HeaderButtons>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
