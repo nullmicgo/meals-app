@@ -11,7 +11,7 @@ const CategoriesScreen = props => {
         return (
             <TouchableOpacity onPress={()=>{
                 props.navigation.navigate({
-                    routeName :'CaregoryMeals',
+                    routeName :'CategoryMeals',
                     params:{
                         categoryId: itemData.item.id
                     }
