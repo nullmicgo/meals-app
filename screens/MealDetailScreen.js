@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
+
 import { MEALS } from '../data/dummy-data';
 import HeaderButton from '../components/HeaderButton';
 
