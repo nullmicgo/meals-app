@@ -3,24 +3,23 @@ import { View, StyleSheet, Text, Button, FlatList, TouchableOpacity } from 'reac
 import { CATEGORIES } from '../data/dummy-data';
 import Colors  from '../constants/Colors';
 import { Platform } from '@unimodules/core';
-
+import CategoryGridTitle  from '../components/CategoryGridTitle';
 
 const CategoriesScreen = props => {
 
     const renderGridItem = (itemData) => {
         return (
-            <TouchableOpacity onPress={()=>{
+            <CategoryGridTitle 
+                title={itemData.item.title} 
+                color={itemData.item.color}
+                onSelect={() =>{
                 props.navigation.navigate({
                     routeName :'CategoryMeals',
                     params:{
                         categoryId: itemData.item.id
                     }
                 });
-            }}>
-                <View style={styles.gridItem}>
-                    <Text>{itemData.item.title}</Text>
-                </View>
-            </TouchableOpacity>
+            }} />
         )
     }
 
