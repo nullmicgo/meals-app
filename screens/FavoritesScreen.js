@@ -12,4 +12,4 @@ FavoritesScreen.navigationOptions = {
   headerTitle: 'Your Favorites'
 };
 
-export default FavoritesScreen;
+export default FavoritesScreen; 
